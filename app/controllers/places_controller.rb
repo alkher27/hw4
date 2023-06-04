@@ -1,15 +1,13 @@
 class PlacesController < ApplicationController
 
   def index
-    if @current_user
-    @places = Place.all
+      @places = Place.all
   end
-end
 
   def show
     @place = Place.find_by({ "id" => params["id"] })
-    @posts = Post.where({ "place_id" => @place["id"] })
-  end
+    @posts = Post.where({ "place_id" => @place.id, "user_id" => @current_user.id })
+  end  
 
   def new
     @place = Place.new
@@ -21,5 +19,4 @@ end
     @place.save
     redirect_to "/places"
   end
-
 end
