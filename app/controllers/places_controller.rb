@@ -1,8 +1,10 @@
 class PlacesController < ApplicationController
 
   def index
+    if @current_user
     @places = Place.all
   end
+end
 
   def show
     @place = Place.find_by({ "id" => params["id"] })
