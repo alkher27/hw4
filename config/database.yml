@@ -25,4 +25,4 @@ production:
   adapter: postgresql
   database: alitravels_production
   username: alitravels
-  password: <%= ENV["ALITRAVELS_FINAL"] %>
+  password: <%= ENV["ALITRAVELS_DATABASE_PASSWORD"] %>
