@@ -24,6 +24,7 @@
         <span class="navbar-text">
           <% if @current_user %>
             Hi <%= @current_user["username"] %>
+            <a href="/login">Home</a>
             <a href="/logout">Logout</a>
           <% else %>
             <a href="/users/new">Sign Up</a> or
@@ -33,14 +34,11 @@
       </div>
     </nav>
   <div class="container-fluid">
-      <div>
+    <% if flash["notice"] %>
+      <div class="alert alert-primary mt-3">
         <%= flash["notice"] %>
       </div>
-      <div>
-        <a href="/">Home</a>
-        <a href="/logout">Logout</a>
-      </div>
-
+    <% end %>
       <%= yield %>
   </div>
   </body>
