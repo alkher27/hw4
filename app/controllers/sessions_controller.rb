@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     #authenticate the user
-    @user = User.find_by({ "email" => params["email"] })
+    @user = User.find_by({ "username" => params["username"] })
     if @user
       if BCrypt::Password.new(@user["password"]) == params["password"]
         session["user_id"] = @user["id"]
